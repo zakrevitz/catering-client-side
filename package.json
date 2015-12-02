@@ -41,4 +41,3 @@
     "postinstall": "bash ./post_install.sh"
   }
 }
-

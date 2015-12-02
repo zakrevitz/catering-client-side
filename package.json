@@ -1,7 +1,10 @@
 {
   "name": "client",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bower": "^1.6.8",
+    "grunt": "^0.4.5"
+  },
   "devDependencies": {
     "apache-server-configs": "^2.8.0",
     "grunt": "^0.4.5",
@@ -31,5 +34,11 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "bash ./post_install.sh"
   }
 }
+

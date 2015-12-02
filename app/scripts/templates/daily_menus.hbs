@@ -1,0 +1,89 @@
+<div id="container" class="container-fluid">
+<div id="user_panel"></div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form id="daysContainer" class="form-horizontal">
+      <div id="tabs">
+        {{!-- Change to #list --}}
+        <ul class="nav nav-tabs">
+        {{#each dailyMenus}}
+          <li><a href="#tabs-{{id}}">{{day_of_week  day_number }}</a></li>
+        {{/each}}
+        </ul>
+        {{#each dailyMenus}}
+          <div id="tabs-{{id}}" class="day_tab" name="{{id}}">
+            <h3 class="center">{{day_of_week  day_number }} Order</h3>
+            <h3 class="center">Limit {{max_total}} UAH</h3>
+            <label id="nothing">
+                <input type="checkbox" id="nothing">I want nothing for this day
+            </label>
+            {{#each categories}}
+            <div id="{{id}}" class="category">
+              <h3>{{title}}</h3>
+              <hr>
+              <div class="container">
+                <div class="row">
+                {{#each dishes}}
+                  <div class="col-md-6 favourited-{{favourited}} dish" id="{{id}}">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" id="{{../../id}}c{{id}}" name="{{title}}">{{title}}
+                      </label>
+                      <span class="pull-right price" name="{{price}}">
+                        {{#if price}}
+                          {{price}} UAH
+                        {{/if}}
+                      </span>
+                    </div>
+                    <div class="description">
+                      <p>{{description}}</p>
+                      {{!-- only output list of dishes in Business Lunch --}}
+                      {{#if child_dishes}}
+                        <ul>
+                          {{#each child_dishes}}
+                            <li>{{title}} : {{description}}</li>
+                          {{/each}}
+                       </ul>
+                      {{/if}}
+                      {{!-- only output list of dishes in Business Lunch --}}
+                      {{#if options}}
+                          {{#each options}}
+                              <input type="radio" id="{{../../../id}}c{{../id}}-r" name="{{../../../id}}c{{../id}}-r" value="{{id}}" disabled> {{title}} x{{price}} UAH<br>
+                          {{/each}}
+                      {{/if}}
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-3">
+                          <input type="button" class="btn btn-small btn-default btn-like" id="{{id}}"value="Liked!">
+                      </div>
+                      <div class="col-md-9">
+                        <div class="form-group">
+                          <label class="control-label col-md-6">Quanity:</label>
+                          <div class="col-md-6">
+                            <input type="number" class="form-control" id="{{../../id}}c{{id}}-i" disabled
+                              name="[{{../../id}},{{id}},{{../../day_number}}]" value="1">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                {{/each}}
+              </div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+    </form>
+  </div>
+  <div class="col-md-3">
+    <button id="prev" class="btn btn-info btn-prev" disabled>Previous day</button>
+    <button id="submit" class="btn btn-success btn-send" disabled>Submit</button>
+    <button id="next" class="btn btn-info btn-next" disabled>Next day</button>
+    <div id="order_summary"></div>
+   </div> 
+</div>
+</div>

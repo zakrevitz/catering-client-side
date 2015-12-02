@@ -21,7 +21,7 @@ define [
 ], ($, _, Backbone, Router, Session, Sprint, Day, DayCollection, OrderCollection, SprintsCollection, IndexView, ContentView, ContactsView, LoginView, DayCollectionView, HistoryView) ->
   class Application
     @defaults = 
-      api_endpoint: "http://localhost:3000/api/v1"
+      api_endpoint: "https://young-shore-4526.herokuapp.com/api/v1"
 
     constructor: (options = {}) ->
       @router = null

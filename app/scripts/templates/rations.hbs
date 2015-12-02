@@ -1,0 +1,13 @@
+<div class="rations">
+<!-- {{#each rations}}
+  <p>{{day_of_week daily_menu.day_number}}: {{dish.title}}, {{format_quantity quantity}}<span class="pull-right">{{price}} UAH</span></p>
+{{/each}}
+<p><span class="pull-right">Total: UAH</span></p> -->
+{{#each rations as |day day_id|}}
+   <h3 class="center">{{day_of_week day_id}}</h3>
+  {{#each day}}
+    <p>{{dish.title}}, {{format_quantity quantity}}<span class="pull-right">{{price}} UAH</span></p>
+  {{/each}}
+{{/each}}
+</div>
+

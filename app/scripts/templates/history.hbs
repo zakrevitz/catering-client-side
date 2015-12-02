@@ -1,0 +1,17 @@
+<div id="container" class="container-fluid">
+<div id="user_panel"></div>
+<h1><center>Order History</center></h1>
+<hr>
+<div class="sprints">
+{{#each sprints}}
+  <div id="{{id}}" class="panel {{state_class aasm_state}} sprint">
+    <div class="panel-heading">{{ title }}<span class="pull-right">{{aasm_state}}</span></div>
+    <div class="panel-body info">
+      <p>{{to_date_format started_at}} - {{to_date_format finished_at}}</p>
+      <p>Status: {{aasm_state}}<p>
+      <div id="sprint_ration" class="panel-footer"></div>
+    </div>
+  </div>
+{{/each}}
+</div>
+</div>

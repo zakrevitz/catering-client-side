@@ -1,0 +1,19 @@
+<div class="panel panel-default order_summary">
+  <div class="panel-heading">Order Summary</div>
+  <div class="panel-body">
+    {{#each summary as |day day_id|}}
+     <div class="container-fluid">
+        <h3 class="center">{{day_of_week day_id}}</h3>
+        {{#each day}}
+          <div class="order" id="{{title}}">{{title}} ×{{quantity}}<span class="pull-right">{{actual_price quantity price}} UAH</span></div>  
+        {{/each}}
+        <hr>
+        {{#each ../total as |value key|}}
+            {{#equal key day_id}}
+              <span class="pull-right">Left: {{value.money_left}} UAH, Total: {{value.total}} UAH</span>
+            {{/equal}}
+        {{/each}}
+     </div>
+    {{/each}}
+  </div>
+</div>

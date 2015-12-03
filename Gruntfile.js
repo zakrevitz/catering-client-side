@@ -326,35 +326,7 @@ module.exports = function (grunt) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
         grunt.task.run(['serve' + (target ? ':' + target : '')]);
     });
-    grunt.registerTask('heroku:production',  function (target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
-        }
 
-        if (target === 'test') {
-            return grunt.task.run([
-                'clean:server',
-                'coffee',
-                'createDefaultTemplate',
-                'handlebars',
-                'sass:server',
-                'connect:test',
-                'open:test',
-                'watch'
-            ]);
-        }
-
-        grunt.task.run([
-            'clean:server',
-            'coffee:dist',
-            'createDefaultTemplate',
-            'handlebars',
-            'sass:server',
-            'connect:livereload',
-            'open:server',
-            'watch'
-        ]);
-    });
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
